@@ -1,5 +1,12 @@
 package cmd
 
+const (
+	ZooCfg         string = "zoocfg"
+	CoreSite              = "coresite"
+	HdfsSite              = "hdfssite"
+	NifiProperties        = "nifiproperties"
+)
+
 var coresite = "<?xml version=\"1.0\"?>\n" +
 	"<?xml-stylesheet type=\"text/xsl\" href=\"configuration.xsl\"?>\n" +
 	"<configuration>\n" +
