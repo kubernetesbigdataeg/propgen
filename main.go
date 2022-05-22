@@ -12,21 +12,26 @@ import (
 )
 
 var (
-	label *string
-	file  *string
+	label    *string
+	template *string
+	file     *string
 )
 
 func init() {
 	label = flag.String("label", "", "NIFI|HADOOP|ZOOKEEPER|KUDU")
+	template = flag.String("template", "", "coresite|hdfssite|nifiproperties|zoocfg")
 	file = flag.String("file", "", "/path/to/filename")
 	flag.Parse()
 
-	if len(os.Args[1:]) <= 2 {
+	if len(os.Args[1:]) <= 3 {
 		fmt.Println("Usage: propgen [flags] \nFlags:")
 		flag.PrintDefaults()
 		fmt.Println("Examples:")
-		fmt.Println("\tpropgen -label NIFI -file /opt/nifi/conf/nifi.properties")
-		fmt.Println("\tpropgen -label HADOOP -file /opt/hadoop/etc/hadoop/conf/core-site.xml")
+		fmt.Println("\tpropgen -label NIFI -template nifiproperties -file /opt/nifi/conf/nifi.properties")
+		fmt.Println("\tpropgen -label HADOOP -template coresite -file /opt/hadoop/etc/hadoop/conf/core-site.xml")
+		fmt.Println("\tpropgen -label HADOOP -template hdfssite -file /opt/hadoop/etc/hadoop/conf/hdfs-site.xml")
+		fmt.Println("\tpropgen -label ZOOKEEPER -template zoocfg -file /opt/zookeeper/conf/zoo.cfg")
+		fmt.Println("\tpropgen -label KUDU -template mastergflagfile -file /opt/kudu/conf/master.gflagfile")
 		os.Exit(1)
 	}
 }
