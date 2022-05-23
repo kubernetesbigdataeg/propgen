@@ -16,5 +16,5 @@ Examples:
         propgen -label HADOOP -render coresite -file /opt/hadoop/etc/hadoop/conf/core-site.xml
         propgen -label HADOOP -render hdfssite -file /opt/hadoop/etc/hadoop/conf/hdfs-site.xml
         propgen -label ZOOKEEPER -render zoocfg -file /opt/zookeeper/conf/zoo.cfg
-        propgen -label KUDU -render mastergflagfile -file /opt/kudu/conf/master.gflagfile
+        propgen -label KUDU -render kudumaster -file /opt/kudu/conf/master.gflagfile
 ```

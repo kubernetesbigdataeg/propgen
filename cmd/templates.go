@@ -5,9 +5,11 @@ const (
 	CoreSite              = "coresite"
 	HdfsSite              = "hdfssite"
 	NifiProperties        = "nifiproperties"
+	KuduMaster            = "kudumaster"
+	KuduWorker            = "kuduworker"
 )
 
-var coresite = "<?xml version=\"1.0\"?>\n" +
+const coresite = "<?xml version=\"1.0\"?>\n" +
 	"<?xml-stylesheet type=\"text/xsl\" href=\"configuration.xsl\"?>\n" +
 	"<configuration>\n" +
 	"{{range $key, $val := .}}\n" +
@@ -17,7 +19,14 @@ var coresite = "<?xml version=\"1.0\"?>\n" +
 	"  </property>\n" +
 	"{{end}}\n" +
 	"</configuration>\n"
+const hdfssite = coresite
 
-var zoocfg = "{{range $key, $val := .}}" +
+const zoocfg = "{{range $key, $val := .}}" +
 	"{{$key}}={{$val}}\n" +
 	"{{end}}"
+const nifiproperties = zoocfg
+
+const kudumaster = "{{range $key, $val := .}}" +
+	"--{{$key}}={{$val}}\n" +
+	"{{end}}"
+const kuduworker = kudumaster

@@ -23,7 +23,7 @@ func init() {
 	file = flag.String("file", "", "/path/to/filename")
 	flag.Parse()
 
-	if len(os.Args[1:]) <= 3 {
+	if flag.NFlag() < 3 {
 		fmt.Println("Usage: propgen [flags] \nFlags:")
 		flag.PrintDefaults()
 		fmt.Println("Examples:")
@@ -31,7 +31,7 @@ func init() {
 		fmt.Println("\tpropgen -label HADOOP -render coresite -file /opt/hadoop/etc/hadoop/conf/core-site.xml")
 		fmt.Println("\tpropgen -label HADOOP -render hdfssite -file /opt/hadoop/etc/hadoop/conf/hdfs-site.xml")
 		fmt.Println("\tpropgen -label ZOOKEEPER -render zoocfg -file /opt/zookeeper/conf/zoo.cfg")
-		fmt.Println("\tpropgen -label KUDU -render mastergflagfile -file /opt/kudu/conf/master.gflagfile")
+		fmt.Println("\tpropgen -label KUDU -render kudumaster -file /opt/kudu/conf/master.gflagfile")
 		os.Exit(1)
 	}
 }
