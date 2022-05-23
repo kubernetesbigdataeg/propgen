@@ -1,4 +1,4 @@
-# Apache Big Data Ecosystem Properties Generator Tool
+# Big Data Ecosystem Properties Generator
 Properties File Generator for using in Big Data Kubernetes Deployments. This tool is for
 using along the configuration pattern: 
 ```
