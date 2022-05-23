@@ -12,9 +12,23 @@ Flags:
   -file string
         /path/to/filename
   -label string
-        NIFI|HADOOP|ZOOKEEPER|KUDU
+        NIFI
+        HADOOP
+        ZOOKEEPER
+        KUDU
+        IMPALA
   -render string
-        coresite|hdfssite|nifiproperties|zoocfg
+        coresite
+        hdfssite
+        nifiproperties
+        zoocfg
+        kudumaster
+        kuduworker
+        impaladaemon
+        impalacatalog
+        impalastatestore
+        impalaadmission
+        
 Examples:
         propgen -label NIFI -render nifiproperties -file /opt/nifi/conf/nifi.properties
         propgen -label HADOOP -render coresite -file /opt/hadoop/etc/hadoop/conf/core-site.xml
