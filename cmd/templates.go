@@ -1,12 +1,16 @@
 package cmd
 
 const (
-	ZooCfg         string = "zoocfg"
-	CoreSite              = "coresite"
-	HdfsSite              = "hdfssite"
-	NifiProperties        = "nifiproperties"
-	KuduMaster            = "kudumaster"
-	KuduWorker            = "kuduworker"
+	ZooCfg           string = "zoocfg"
+	CoreSite                = "coresite"
+	HdfsSite                = "hdfssite"
+	NifiProperties          = "nifiproperties"
+	KuduMaster              = "kudumaster"
+	KuduWorker              = "kuduworker"
+	ImpalaDaemon            = "impaladaemon"
+	ImpalaCatalog           = "impalacatalog"
+	ImpalaStateStore        = "impalastatestore"
+	ImpalaAdmission         = "impalaadmission"
 )
 
 const coresite = "<?xml version=\"1.0\"?>\n" +
@@ -30,3 +34,7 @@ const kudumaster = "{{range $key, $val := .}}" +
 	"--{{$key}}={{$val}}\n" +
 	"{{end}}"
 const kuduworker = kudumaster
+const impaladaemon = kudumaster
+const impalacatalog = kudumaster
+const impalastatestore = kudumaster
+const impalaadmission = kudumaster

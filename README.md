@@ -1,5 +1,9 @@
-# propgen
-Container Property File Generator for using in Kubernetes Deployments
+# Apache Big Data Ecosystem Properties Generator Tool
+Properties File Generator for using in Big Data Kubernetes Deployments. This tool is for
+using along the configuration pattern: 
+```
+Environment Variables File Mounted as ConfigMap + Properties Generator
+```
 
 ```
 $ ./propgen 
