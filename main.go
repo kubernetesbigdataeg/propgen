@@ -17,6 +17,8 @@ var (
 	file   *string
 )
 
+var Version = "development"
+
 func init() {
 	label = flag.String("label", "", "NIFI|HADOOP|ZOOKEEPER|KUDU")
 	render = flag.String("render", "", "coresite|hdfssite|nifiproperties|zoocfg")
@@ -24,6 +26,7 @@ func init() {
 	flag.Parse()
 
 	if flag.NFlag() < 3 {
+		fmt.Println("PropGen Version: ", Version)
 		fmt.Println("Usage: propgen [flags] \nFlags:")
 		flag.PrintDefaults()
 		fmt.Println("Examples:")
