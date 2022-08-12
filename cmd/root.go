@@ -23,7 +23,8 @@ func SafeGetKeyReplaceUnderscoreByDot(cad string) string {
 	if !strings.Contains(cad, "=") {
 		log.Fatal("Unable get Key (left hand =) in: ")
 	}
-	return strings.Replace(strings.SplitN(cad, "=", 2)[0], "_", ".", -1)
+	strReplaced := strings.Replace(strings.SplitN(cad, "=", 2)[0], "___", "-", -1)
+	return strings.Replace(strings.SplitN(strReplaced, "=", 2)[0], "_", ".", -1)
 }
 
 // SafeGetKey Gets the key without change anything
