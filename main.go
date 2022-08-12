@@ -6,7 +6,6 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"github.com/javiroman/propgen/cmd"
 	"os"
 )
@@ -26,17 +25,10 @@ func init() {
 	flag.Parse()
 
 	if flag.NFlag() < 3 {
-		fmt.Println("PropGen Version: ", Version)
-		fmt.Println("Usage: propgen [flags] \nFlags:")
-		flag.PrintDefaults()
-		fmt.Println("Examples:")
-		fmt.Println("\tpropgen -label NIFI -render nifiproperties -file /opt/nifi/conf/nifi.properties")
-		fmt.Println("\tpropgen -label HADOOP -render coresite -file /opt/hadoop/etc/hadoop/conf/core-site.xml")
-		fmt.Println("\tpropgen -label HADOOP -render hdfssite -file /opt/hadoop/etc/hadoop/conf/hdfs-site.xml")
-		fmt.Println("\tpropgen -label ZOOKEEPER -render zoocfg -file /opt/zookeeper/conf/zoo.cfg")
-		fmt.Println("\tpropgen -label KUDU -render kudumaster -file /opt/kudu/conf/master.gflagfile")
+		usage()
 		os.Exit(1)
 	}
+	checkParametersIntegrity()
 }
 
 func main() {
