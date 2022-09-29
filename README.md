@@ -5,6 +5,8 @@ using along the configuration pattern:
 Environment Variables File Mounted as ConfigMap + Properties Generator
 ```
 
+![config pattern](docs/config-strategy.png)
+
 ```
 $ ./propgen 
 Usage: propgen [flags] 
