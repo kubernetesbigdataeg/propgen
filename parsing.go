@@ -35,9 +35,9 @@ func checkParametersIntegrity() {
 			log.Fatalf("%s needs render parameter: zoocfg", *label)
 		}
 	case "KUDU":
-		if *render != "coresite" && *render != "hdfssite" {
+		if *render != "kudumaster" && *render != "kuduworker" {
 			log.Println(*render)
-			log.Fatalf("%s needs the render parameter: coresite, hdfssite", *label)
+			log.Fatalf("%s needs the render parameter: kudumaster, kuduworker", *label)
 		}
 	default:
 		log.Fatal("Unspected Label: ", *label)
