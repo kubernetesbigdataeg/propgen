@@ -19,8 +19,8 @@ var (
 var Version = "development"
 
 func init() {
-	label = flag.String("label", "", "NIFI|HADOOP|ZOOKEEPER|KUDU")
-	render = flag.String("render", "", "coresite|hdfssite|nifiproperties|zoocfg")
+	label = flag.String("label", "", "NIFI|HADOOP|ZOOKEEPER|KUDU|HIVE")
+	render = flag.String("render", "", "coresite|hdfssite|nifiproperties|zoocfg|metastoresite")
 	file = flag.String("file", "", "/path/to/filename")
 	flag.Parse()
 

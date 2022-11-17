@@ -19,6 +19,7 @@ Flags:
         ZOOKEEPER
         KUDU
         IMPALA
+        HIVE
   -render string
         coresite
         hdfssite
@@ -30,11 +31,12 @@ Flags:
         impalacatalog
         impalastatestore
         impalaadmission
-        
+        metastoresite
 Examples:
         propgen -label NIFI -render nifiproperties -file /opt/nifi/conf/nifi.properties
         propgen -label HADOOP -render coresite -file /opt/hadoop/etc/hadoop/conf/core-site.xml
         propgen -label HADOOP -render hdfssite -file /opt/hadoop/etc/hadoop/conf/hdfs-site.xml
         propgen -label ZOOKEEPER -render zoocfg -file /opt/zookeeper/conf/zoo.cfg
         propgen -label KUDU -render kudumaster -file /opt/kudu/conf/master.gflagfile
+        propgen -label HIVE -render metastoresite -file /opt/hive-metastore/conf/metastore-site.xml
 ```
