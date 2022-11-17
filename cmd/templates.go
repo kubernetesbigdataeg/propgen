@@ -11,6 +11,7 @@ const (
 	ImpalaCatalog           = "impalacatalog"
 	ImpalaStateStore        = "impalastatestore"
 	ImpalaAdmission         = "impalaadmission"
+	MetastoreSite			= "metastoresite"
 )
 
 const coresite = "<?xml version=\"1.0\"?>\n" +
@@ -38,3 +39,11 @@ const impaladaemon = kudumaster
 const impalacatalog = kudumaster
 const impalastatestore = kudumaster
 const impalaadmission = kudumaster
+const metastoresite = "<configuration>\n" +
+	"{{range $key, $val := .}}\n" +
+	"  <property>\n" +
+	"      <name>{{$key}}</name>\n" +
+	"      <value>{{$val}}</value>\n" +
+	"  </property>\n" +
+	"{{end}}\n" +
+	"</configuration>\n"

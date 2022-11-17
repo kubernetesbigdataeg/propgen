@@ -16,6 +16,7 @@ func usage() {
 	fmt.Println("\tpropgen -label HADOOP -render hdfssite -file /opt/hadoop/etc/hadoop/conf/hdfs-site.xml")
 	fmt.Println("\tpropgen -label ZOOKEEPER -render zoocfg -file /opt/zookeeper/conf/zoo.cfg")
 	fmt.Println("\tpropgen -label KUDU -render kudumaster -file /opt/kudu/conf/master.gflagfile")
+	fmt.Println("\tpropgen -label HIVE -render metastoresite -file /opt/hive-metastore/conf/metastore-site.xml")
 }
 
 func checkParametersIntegrity() {
@@ -38,6 +39,11 @@ func checkParametersIntegrity() {
 		if *render != "kudumaster" && *render != "kuduworker" {
 			log.Println(*render)
 			log.Fatalf("%s needs the render parameter: kudumaster, kuduworker", *label)
+		}
+	case "HIVE":
+		if *render != "metastoresite" {
+			log.Println(*render)
+			log.Fatalf("%s needs the render parameter: metastoresite", *label)
 		}
 	default:
 		log.Fatal("Unspected Label: ", *label)

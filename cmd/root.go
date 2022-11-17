@@ -97,6 +97,12 @@ func GenerateFile(label string, render string, file string) {
 		if err != nil {
 			fmt.Println(err)
 		}
+	case MetastoreSite:
+		tmp1, _ := template.New(MetastoreSite).Parse(metastoresite)
+		err := tmp1.Execute(f, configEntries)
+		if err != nil {
+			fmt.Println(err)
+		}
 	default:
 		log.Fatal("No render match found!")
 	}
