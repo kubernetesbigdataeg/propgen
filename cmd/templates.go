@@ -6,11 +6,12 @@ const (
 	HdfsSite                = "hdfssite"
 	NifiProperties          = "nifiproperties"
 	KuduMaster              = "kudumaster"
-	KuduWorker              = "kuduworker"
+	KuduTserver             = "kudutserver"
 	ImpalaDaemon            = "impaladaemon"
 	ImpalaCatalog           = "impalacatalog"
 	ImpalaStateStore        = "impalastatestore"
 	ImpalaAdmission         = "impalaadmission"
+	HiveSite				= "hivesite"
 	MetastoreSite			= "metastoresite"
 )
 
@@ -34,16 +35,10 @@ const nifiproperties = zoocfg
 const kudumaster = "{{range $key, $val := .}}" +
 	"--{{$key}}={{$val}}\n" +
 	"{{end}}"
-const kuduworker = kudumaster
+const kudutserver = kudumaster
 const impaladaemon = kudumaster
 const impalacatalog = kudumaster
 const impalastatestore = kudumaster
 const impalaadmission = kudumaster
-const metastoresite = "<configuration>\n" +
-	"{{range $key, $val := .}}\n" +
-	"  <property>\n" +
-	"      <name>{{$key}}</name>\n" +
-	"      <value>{{$val}}</value>\n" +
-	"  </property>\n" +
-	"{{end}}\n" +
-	"</configuration>\n"
+const hivesite = coresite
+const metastoresite = coresite

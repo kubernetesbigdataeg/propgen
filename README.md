@@ -26,7 +26,7 @@ Flags:
         nifiproperties
         zoocfg
         kudumaster
-        kuduworker
+        kudutserver
         impaladaemon
         impalacatalog
         impalastatestore
