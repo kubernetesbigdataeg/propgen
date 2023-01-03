@@ -17,6 +17,7 @@ func usage() {
 	fmt.Println("\tpropgen -label ZOOKEEPER -render zoocfg -file /opt/zookeeper/conf/zoo.cfg")
 	fmt.Println("\tpropgen -label KUDU -render kudumaster -file /opt/kudu/conf/master.gflagfile")
 	fmt.Println("\tpropgen -label HIVE -render metastoresite -file /opt/hive-metastore/conf/metastore-site.xml")
+	fmt.Println("\tpropgen -label IMPALA -render impalamaster -file /opt/impala/conf/impala.gflagfile")
 }
 
 func checkParametersIntegrity() {
@@ -36,14 +37,19 @@ func checkParametersIntegrity() {
 			log.Fatalf("%s needs render parameter: zoocfg", *label)
 		}
 	case "KUDU":
-		if *render != "kudumaster" && *render != "kuduworker" {
+		if *render != "kudumaster" && *render != "kudutserver" {
 			log.Println(*render)
-			log.Fatalf("%s needs the render parameter: kudumaster, kuduworker", *label)
+			log.Fatalf("%s needs the render parameter: kudumaster, kudutserver", *label)
+		}
+	case "IMPALA":
+		if *render != "impaladaemon" && *render != "impalacatalog" && *render != "impalastatestore" && *render != "impalaadmission" && *render != "hivesite" && *render != "hdfssite" && *render != "coresite" {
+			log.Println(*render)
+			log.Fatalf("%s needs the render parameter: impaladaemon, impalacatalog, impalastatestore, impalaadmission, hivesite, hdfssite", "coresite", *label)
 		}
 	case "HIVE":
-		if *render != "metastoresite" {
+		if *render != "metastoresite" && *render != "hivesite" {
 			log.Println(*render)
-			log.Fatalf("%s needs the render parameter: metastoresite", *label)
+			log.Fatalf("%s needs the render parameter: metastoresite, hivesite", *label)
 		}
 	default:
 		log.Fatal("Unspected Label: ", *label)

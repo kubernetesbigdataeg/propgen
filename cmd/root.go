@@ -91,13 +91,13 @@ func GenerateFile(label string, render string, file string) {
 		if err != nil {
 			fmt.Println(err)
 		}
-	case KuduMaster, KuduWorker, ImpalaDaemon, ImpalaCatalog, ImpalaStateStore, ImpalaAdmission:
+	case KuduMaster, KuduTserver, ImpalaDaemon, ImpalaCatalog, ImpalaStateStore, ImpalaAdmission:
 		tmp1, _ := template.New(KuduMaster).Parse(kudumaster)
 		err := tmp1.Execute(f, configEntries)
 		if err != nil {
 			fmt.Println(err)
 		}
-	case MetastoreSite:
+	case MetastoreSite, HiveSite:
 		tmp1, _ := template.New(MetastoreSite).Parse(metastoresite)
 		err := tmp1.Execute(f, configEntries)
 		if err != nil {
