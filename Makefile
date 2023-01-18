@@ -4,7 +4,7 @@ all : test doc clean build
 .PHONY: all
 
 build:
-	go build -ldflags="-X 'main.Version=v0.0.6'" -o propgen main.go parsing.go
+	go build -ldflags="-X 'main.Version=v0.0.7'" -o propgen main.go parsing.go
 
 test:
 	go test ./pkg

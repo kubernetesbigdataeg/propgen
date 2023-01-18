@@ -56,7 +56,8 @@ func GenerateFile(label string, render string, file string) {
 		} else {
 			subcad = strings.SplitN(e, "__", 3)
 			if matchedLabel && (subcad[RENDER] == render) {
-				if label == "KUDU" || label == "IMPALA" {
+				if label == "KUDU" || (label == "IMPALA" && 
+				  (render == "impaladaemon" || render == "impalacatalog" || render == "impalastatestore" || render == "impalaadmission")) {
 					configEntries[SafeGetKey(subcad[VALUES])] = SafeGetValue(subcad[VALUES])
 				} else {
 					configEntries[SafeGetKeyReplaceUnderscoreByDot(subcad[VALUES])] =
